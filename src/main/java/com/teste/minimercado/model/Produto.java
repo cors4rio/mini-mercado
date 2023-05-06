@@ -1,6 +1,16 @@
     package com.teste.minimercado.model;
 
+    import jakarta.persistence.Entity;
+    import jakarta.persistence.GeneratedValue;
+    import jakarta.persistence.GenerationType;
+    import jakarta.persistence.Table;
+    import org.springframework.data.annotation.Id;
+
+    @Entity
     public class Produto {
+        @jakarta.persistence.Id
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
         private String nome;
         private Integer quantidade;
@@ -45,5 +55,9 @@
 
         public void setObservacao(String observacao) {
             this.observacao = observacao;
+        }
+
+        public void setId(Long id) {
+            this.id = Math.toIntExact(id);
         }
     }
